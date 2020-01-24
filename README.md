@@ -1,7 +1,7 @@
 # EduSign
 EduSign allows you to generate a digital certificate for any given file, this certificate can then be used to fetch the file securely from our server Edusign reduces the burden of transferring Digital Documents securely and also allows you to uplaod a File you have to fetch its details and verify the authenticity.
 
-##Modes
+# Modes
 
 #Upload
 >Upload any file to the server and receive a certificate to securely offer the certificate to multiple users.
