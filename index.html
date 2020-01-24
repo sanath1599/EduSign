@@ -4,15 +4,16 @@
 </head>
 <body>
   <H1>Upload to Our Server
-<form action="/" enctype="multipart/form-data" method="post">
+<form action="/upload" enctype="multipart/form-data" method="post">
     <input type="file" name="file" multiple>
+    <input type="password" name="pass" multiple>
     <input type="submit" value="Upload">
 </form>
 
 <H1> Fetch File
-<form action="/fetch" method="get">
-  <input type="text" name="file">
-  <input type="submit" value="Submit">
+  <form action="/fetch" enctype="multipart/form-data" method="post">
+      <input type="file" name="file" multiple>
+      <input type="submit" value="Upload">
 </form>
 
 <H1> Verify File Modified
