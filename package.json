@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Create and Verify documents",
   "main": "server.js",
-  "scripts": { "test": "server.js" },
+  "scripts": { "test": "node server.js" },
   "author": "",
   "license": "ISC",
   "dependencies": {
