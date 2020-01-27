@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Create and Verify documents",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": { "test": "server.js" },
   "author": "",
   "license": "ISC",
   "dependencies": {
