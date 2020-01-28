@@ -23,8 +23,24 @@ app.set('env', NODE_ENV);
 var upload = multer({ dest: 'uploads/' })
 
 
-app.get('/', function (req, res){
-    res.sendFile(__dirname + '/index.html');
+app.post('/register', function (req, res){
+
+
+    pass=req.param('password')
+
+  registerUser(req.param('first_name'),req.param('last_name'),req.param('email'),req.param('organization'),pass)
+  console.log("Registered Succesfully")
+
+    });
+
+app.post('/login', function (req, res){
+  element = db.get('user')
+  .find({ "pass": req.params.password })
+  .value()
+  console.log(element)
+  if(element){
+    res.redirect('http://localhost:8080/profile.html');
+  }
 });
 
 app.post('/upload', upload.single('file'), function (req, res, next) {
@@ -94,6 +110,12 @@ function storeDB(orig_name,new_name,sha_value){
   .write()
 }
 
+function registerUser(first_name,last_name,email,org,password){
+  db.get('user')
+  .push({ "first_name": first_name, "last_name": last_name, "email":email, "organization": org, "pass":password})
+  .write()
+}
+
 function generateDB(orig,new_name,sum,org,date,pass){
   hash = md5(pass)
   //generate a DB
@@ -139,5 +161,4 @@ app.listen(PORT, () => {
       'port'
     )} | Environment : ${app.get('env')}`
   );
-  return 1;
 });
