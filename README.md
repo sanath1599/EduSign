@@ -13,5 +13,5 @@ EduSign allows you to generate a digital certificate for any given file, this ce
 >Use the certificate and the password to securely fetch the file from our servers.
 
 #Verify
->Upload the original document to our server and verify if the document has been changed or not. 
+>Upload the original document to our server and verify if the document has been modified or not. 
 
