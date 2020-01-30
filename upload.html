@@ -8,14 +8,17 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
 <body id="page-top">
     <div id="wrapper">
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+        <nav class="navbar navbar-dark bg-primary align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
             <div class="container-fluid d-flex flex-column p-0">
                 <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-                    <div class="sidebar-brand-icon rotate-n-15"></div><img src="assets/img/Logo-Small.jpg" width="100"><br></a>
+                    <div class="sidebar-brand-icon rotate-n-15"></div><img class="img-fluid" src="assets/img/Logo-Small.jpg" width="150"><br></a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Login</span></a></li>
@@ -131,12 +134,21 @@
                     </ul>
             </div>
             </nav>
-            <div class="container-fluid">
-                <h3 class="text-dark mb-1">Upload</h3>
+            <div class="container">
+                <div class="text-primary shadow mb-auto card"><a class="btn btn-link text-left border-info shadow-sm d-inline mb-auto card-header font-weight-bold" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-4" href="#collapse-4" role="button">Instructions</a>
+                    <div class="collapse"
+                        id="collapse-4">
+                        <div class="mb-auto card-body">
+                            <p class="m-0">&gt;Use the "Choose File" option to select the file that needs to be uploaded.<br>&gt;Select a password of your choice(Optiona)<br>&gt;Hit the upload button to Upload the document and generata a Unique Certificate!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid border rounded-0 shadow-sm mt-auto">
+                <div class="dashed_upload"></div>
             </div>
             <div></div>
-            <div class="container-fluid d-xl-flex align-items-xl-center">
-                <form><input type="file"></form><input type="password" name="password" placeholder="password"><button class="btn btn-primary text-left" type="submit">Upload</button></div>
+            <div class="container-fluid text-primary d-xl-flex align-items-xl-center"><a class="btn btn-primary btn-icon-split" role="button"></a></div>
         </div>
         <footer class="bg-white sticky-footer">
             <div class="container my-auto">

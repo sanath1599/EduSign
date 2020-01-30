@@ -51,7 +51,11 @@ app.get('/login', function(req,res){
   loggedIN=checklogin()
   if(loggedIN){
     res.redirect('http://localhost:8000/profile.html');
+    console.log("logged in")
   }
+  else {
+  console.log("not logged in")
+}
 })
 
 //End point for Actual Login
@@ -148,7 +152,7 @@ function registerUser(first_name,last_name,email,org,password){
 }
 
 //Function to check loggedIN
-function loggedIN(){
+function checklogin(){
   client.get('email', function (error, result) {
     if (result) {
         return true;
