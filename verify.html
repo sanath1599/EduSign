@@ -15,7 +15,7 @@
 
 <body id="page-top">
     <div id="wrapper">
-        <nav class="navbar navbar-dark bg-primary align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+        <nav class="navbar navbar-light align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
             <div class="container-fluid d-flex flex-column p-0">
                 <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"></div><img class="img-fluid" src="assets/img/Logo-Small.jpg" width="150"><br></a>
@@ -23,7 +23,8 @@
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Login</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="register.html"><i class="fas fa-user-circle"></i><span>Register</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="forgot-password.html"><i class="fas fa-key"></i><span>Forgotten Password</span></a><a class="nav-link" href="upload.html"><i class="fas fa-info-circle"></i><span>Upload File</span></a><a class="nav-link" href="profile.html"><i class="far fa-smile"></i><span>Profile</span></a>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="forgot-password.html"><i class="fas fa-key"></i><span>Forgotten Password</span></a><a class="nav-link active" href="upload.html"><i class="fas fa-cloud-upload-alt"></i><span>Upload File</span></a><a class="nav-link"
+                            href="fetch.html"><i class="fas fa-exchange-alt"></i><span>Fetch File</span></a><a class="nav-link" href="verify.html"><i class="fas fa-check-double"></i><span>VerifyFile</span></a><a class="nav-link" href="profile.html"><i class="far fa-smile"></i><span>Profile</span></a>
                         <a
                             class="nav-link" href="files.html"><i class="fas fa-info-circle"></i><span>Files</span></a>
                     </li>
@@ -42,7 +43,7 @@
         Drag & Drop
       </div>
       <div class="desc">
-        or 
+        or
       </div>
       <div class="browse">
         click here to browse
@@ -57,13 +58,12 @@
                 </div>
                 <div></div>
                 <div class="container-fluid text-primary d-xl-flex align-items-xl-center"><a class="btn btn-primary btn-icon-split" role="button"></a></div>
-                <div class="container">
-                    <div class="text-primary shadow mb-auto card"><a class="btn btn-link text-left border-info shadow-sm d-inline mb-auto card-header font-weight-bold" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-4" href="#collapse-4" role="button">Instructions</a>
-                        <div class="collapse show"
-                            id="collapse-4">
-                            <div class="mb-auto card-body">
-                                <p class="m-0">&gt;Use the "Click here to browse" option or Drag and Drop the File to begin the upload process.<br>&gt;Hit the upload button to Upload the document and generata a Unique Certificate!</p>
-                            </div>
+                <div class="container text-left"><input type="password"><a class="btn btn-success btn-icon-split" role="button"><span class="text-white-50 icon"><i class="fas fa-cloud-upload-alt"></i></span><span class="text-white text">Upload</span></a></div>
+                <div class="text-primary shadow mb-auto card"><a class="btn btn-link text-left border-info shadow-sm d-inline mb-auto card-header font-weight-bold" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-4" href="#collapse-4" role="button">Instructions</a>
+                    <div class="collapse show"
+                        id="collapse-4">
+                        <div class="mb-auto card-body">
+                            <p class="m-0">&gt;Use the "Click here to browse" option or Drag and Drop the File to begin the upload process.<br>&gt;Hit the upload button to Upload the document and verify the file</p>
                         </div>
                     </div>
                 </div>
