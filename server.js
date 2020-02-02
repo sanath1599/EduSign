@@ -29,9 +29,9 @@ client.on('connect', function() {
     console.log('Redis client connected');
 });
 
-client.on('error', function (err) {
-    console.log('Something went wrong ' + err);
-});
+// client.on('error', function (err) {
+//     console.log('Something went wrong ' + err);
+// });
 }
 //End point to register
 app.post('/register',urlencodedParser, function (req, res){
@@ -200,4 +200,5 @@ app.listen(PORT, () => {
       'port'
     )} | Environment : ${app.get('env')}`
   );
+  return true
 });
