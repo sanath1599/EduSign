@@ -23,6 +23,7 @@ app.set('env', NODE_ENV);
 var upload = multer({ dest: 'uploads/' })
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.use(express.static(__dirname));
+if(PORT==3000){
 //Establish Redis connection
 client.on('connect', function() {
     console.log('Redis client connected');
@@ -31,7 +32,7 @@ client.on('connect', function() {
 client.on('error', function (err) {
     console.log('Something went wrong ' + err);
 });
-
+}
 //End point to register
 app.post('/register',urlencodedParser, function (req, res){
   pass=req.param('password')
