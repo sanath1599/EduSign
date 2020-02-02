@@ -7,8 +7,8 @@ const fs = require('fs');
 var rn = require('random-number');
 var sleep = require('system-sleep');
 var md5 = require('md5');
-var redis = require('redis');
-var client = redis.createClient();
+// var redis = require('redis');
+// var client = redis.createClient();
 var app = express();
 var sha256File = require('sha256-file');
 const low = require('lowdb')
@@ -23,16 +23,16 @@ app.set('env', NODE_ENV);
 var upload = multer({ dest: 'uploads/' })
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.use(express.static(__dirname));
-if(PORT==3000){
-//Establish Redis connection
-client.on('connect', function() {
-    console.log('Redis client connected');
-});
-
+// if(PORT==3000){
+// //Establish Redis connection
+// client.on('connect', function() {
+//     console.log('Redis client connected');
+// });
+//
 // client.on('error', function (err) {
 //     console.log('Something went wrong ' + err);
 // });
-}
+// }
 //End point to register
 app.post('/register',urlencodedParser, function (req, res){
   pass=req.param('password')
@@ -68,7 +68,7 @@ app.post('/login',urlencodedParser, function (req, res){
   console.log(element)
   if(element.email==req.param('email') ){
     res.redirect('/profile.html');
-    client.set('email', req.param('email'), redis.print);
+    // client.set('email', req.param('email'), redis.print);
   }
 });
 
