@@ -22,7 +22,7 @@ app.set('port', PORT);
 app.set('env', NODE_ENV);
 var upload = multer({ dest: 'uploads/' })
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
-
+app.use(express.static(__dirname));
 //Establish Redis connection
 client.on('connect', function() {
     console.log('Redis client connected');
@@ -39,7 +39,7 @@ app.post('/register',urlencodedParser, function (req, res){
   console.log("Registered Succesfully")
   console.log(pass)
   if(success){
-  res.redirect('http://localhost:8000/login.html');
+  res.redirect('/login.html');
 }
 else{
   res.send("User already exists, please Login")
@@ -50,7 +50,7 @@ else{
 app.get('/login', function(req,res){
   loggedIN=checklogin()
   if(loggedIN){
-    res.redirect('http://localhost:8000/profile.html');
+    res.redirect('/profile.html');
     console.log("logged in")
   }
   else {
@@ -66,7 +66,7 @@ app.post('/login',urlencodedParser, function (req, res){
   .value()
   console.log(element)
   if(element.email==req.param('email') ){
-    res.redirect('http://localhost:8000/profile.html');
+    res.redirect('/profile.html');
     client.set('email', req.param('email'), redis.print);
   }
 });
