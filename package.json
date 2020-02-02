@@ -4,7 +4,8 @@
   "description": "Create and Verify documents",
   "main": "server.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "build": "node server.js"
   },
   "author": "",
   "license": "ISC",
