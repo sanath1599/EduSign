@@ -214,5 +214,5 @@ app.listen(PORT, () => {
       "port"
     )} | Environment : ${app.get("env")}`
   );
-  return true;
+  return;
 });
