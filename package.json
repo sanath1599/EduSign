@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "node test.js",
-    "build": "node server.js && exit 0"
+    "build": "netlify-lambda build express"
   },
   "author": "",
   "license": "ISC",
