@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "node test.js",
-    "build": "node server.js"
+    "build": "node server.js && exit 1"
   },
   "author": "",
   "license": "ISC",
