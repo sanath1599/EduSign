@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
 <body class="bg-gradient-primary">
@@ -23,15 +26,15 @@
                             <div class="text-center">
                                 <h4 class="text-dark mb-4">Create an Account!</h4>
                             </div>
-                            <form class="user" action="http://localhost:3000/register" method="post">
+                            <form class="user" action="/register" method="post" enctype="application/x-www-form-urlencoded">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="border-primary form-control form-control-user" type="text" id="exampleFirstName" placeholder="First Name" name="first_name" required=""></div>
                                     <div class="col-sm-6"><input class="border-primary form-control form-control-user" type="text" id="exampleFirstName" placeholder="Last Name" name="last_name" required=""></div>
                                 </div>
-                                <div class="form-group"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email Address" name="email" required="" inputmode="email"></div>
+                                <div class="form-group"><input class="border-primary form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email Address" name="email" required="" inputmode="email"></div>
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="examplePasswordInput" placeholder="Organization" name="organization" required=""></div>
-                                    <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="exampleRepeatPasswordInput" placeholder="Password" name="password" required=""></div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="border-primary form-control form-control-user" type="text" id="exampleFirstName" placeholder="Organization" name="organization" required=""></div>
+                                    <div class="col-sm-6"><input class="border-primary form-control form-control-user" type="password" id="exampleRepeatPasswordInput" placeholder="Password" name="password" required=""></div>
                                 </div><button class="btn btn-primary btn-block text-white btn-user" type="submit">Register Account</button>
                                 <hr>
                                 <hr>
