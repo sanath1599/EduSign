@@ -22,9 +22,38 @@
     />
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css" />
     <link rel="stylesheet" href="assets/css/styles.min.css" />
+    <script>
+      function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+      function checkCookie() {
+  var username = getCookie("user");
+  if (username != "") {
+   alert("Welcome again " + username +" Please use the logout button if you wish to use a different account");
+   window.location.replace("/profile.html");
+    }
+    else{
+      alert("Please Enter your details to login")
+    }
+  }
+
+    </script>
   </head>
 
-  <body class="bg-gradient-primary">
+  <body onload=checkCookie() class="bg-gradient-primary">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-9 col-lg-12 col-xl-10">

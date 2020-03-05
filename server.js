@@ -22,7 +22,10 @@ app.set("port", PORT);
 app.set("env", NODE_ENV);
 var upload = multer({ dest: "uploads/" });
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
+var cookieParser = require('cookie-parser')
+app.use(cookieParser());
 app.use(express.static(__dirname));
+
 // if(PORT==3000){
 // //Establish Redis connection
 // client.on('connect', function() {
@@ -35,7 +38,7 @@ app.use(express.static(__dirname));
 // }
 //End point to register
 app.post("/register", urlencodedParser, function(req, res) {
-  pass = req.param("password");
+  pass = md5(req.param("password"));
   success = registerUser(
     req.param("first_name"),
     req.param("last_name"),
@@ -52,16 +55,6 @@ app.post("/register", urlencodedParser, function(req, res) {
   }
 });
 
-//End point to check login
-app.get("/login", function(req, res) {
-  loggedIN = checklogin();
-  if (loggedIN) {
-    res.redirect("/profile.html");
-    console.log("logged in");
-  } else {
-    console.log("not logged in");
-  }
-});
 
 //End point for Actual Login
 app.post("/login", urlencodedParser, function(req, res) {
@@ -72,7 +65,9 @@ app.post("/login", urlencodedParser, function(req, res) {
     .value();
   console.log(element);
   if (element.email == req.param("email")) {
+    res.cookie('user',req.param("email"), { maxAge: 900000, httpOnly: false })
     res.redirect("/profile.html");
+    
     // client.set('email', req.param('email'), redis.print);
   }
 });
@@ -124,11 +119,11 @@ app.post("/verify", upload.single("file"), function(req, res, next) {
     if (error) return console.log(error);
     console.log(sum);
     if (verifyFile(sum) == 1) {
-      res.send("File Not Modified");
+      res.sendFile(__dirname + "/assets/img/notmodified.png");
       console.log("Not modified");
     } else {
-      console.log("file doesn't exist/modified");
-      res.send("File Modified");
+      res.sendFile(__dirname + "/assets/img/modified.png");
+      
     }
     fs.unlink(req.file.path, function(err) {
       if (err) throw err;
@@ -160,21 +155,15 @@ function registerUser(first_name, last_name, email, org, password) {
         last_name: last_name,
         email: email,
         organization: org,
-        pass: md5(password)
+        pass: password
       })
       .write();
+      console.log(first_name)
     return true;
   }
 }
 
-//Function to check loggedIN
-function checklogin() {
-  client.get("email", function(error, result) {
-    if (result) {
-      return true;
-    }
-  });
-}
+
 
 //Function to generate the certificate
 function generateDB(orig, new_name, sum, org, date, pass) {

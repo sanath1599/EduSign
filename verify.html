@@ -4,13 +4,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Blank Page - Edusign</title>
+    <title>Verify File - Edusign</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="assets/css/styles.min.css">
+    <script>
+        "use strict";
+        function submitForm(oFormElement)
+        {
+          var xhr = new XMLHttpRequest();
+          xhr.onload = function(){ alert (xhr.responseText); } // success case
+          xhr.onerror = function(){ alert (xhr.responseText); } // failure case
+          xhr.setRequestHeader('Content-type', 'multipart/form-data');
+          xhr.open (oFormElement.method, oFormElement.action, true);
+          xhr.send (new FormData (oFormElement));
+          return false;
+        }
+    </script>
 </head>
 
 <body id="page-top">
@@ -23,8 +36,8 @@
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Login</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="register.html"><i class="fas fa-user-circle"></i><span>Register</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="forgot-password.html"><i class="fas fa-key"></i><span>Forgotten Password</span></a><a class="nav-link active" href="upload.html"><i class="fas fa-cloud-upload-alt"></i><span>Upload File</span></a><a class="nav-link"
-                            href="fetch.html"><i class="fas fa-exchange-alt"></i><span>Fetch File</span></a><a class="nav-link" href="verify.html"><i class="fas fa-check-double"></i><span>VerifyFile</span></a><a class="nav-link" href="profile.html"><i class="far fa-smile"></i><span>Profile</span></a>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="forgot-password.html"><i class="fas fa-key"></i><span>Forgotten Password</span></a><a class="nav-link" href="upload.html"><i class="fas fa-cloud-upload-alt"></i><span>Upload File</span></a><a class="nav-link"
+                            href="fetch.html"><i class="fas fa-exchange-alt"></i><span>Fetch File</span></a><a class="nav-link active" href="verify.html"><i class="fas fa-check-double"></i><span>VerifyFile</span></a><a class="nav-link" href="profile.html"><i class="far fa-smile"></i><span>Profile</span></a>
                         <a
                             class="nav-link" href="files.html"><i class="fas fa-info-circle"></i><span>Files</span></a>
                     </li>
@@ -35,39 +48,27 @@
         <div class="d-flex flex-column" id="content-wrapper">
             <div class="d-inline" id="content">
                 <div class="container border rounded-0 shadow-sm mt-auto">
-                    <div class="dashed_upload"><div class="wrapper">
-  <div class="drop">
-    <div class="cont">
-      <i class="fa fa-cloud-upload"></i>
-      <div class="tit">
-        Drag & Drop
-      </div>
-      <div class="desc">
-        or
-      </div>
-      <div class="browse">
-        click here to browse
-      </div>
-    </div>
-    <output id="list"></output><input id="file" name="files" type="file" />
-  </div>
-</div>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-    <script src="js/index.js"></script></div>
-                </div>
-                <div></div>
-                <div class="container-fluid text-primary d-xl-flex align-items-xl-center"><a class="btn btn-primary btn-icon-split" role="button"></a></div>
-                <div class="container text-left"><input type="password"><a class="btn btn-success btn-icon-split" role="button"><span class="text-white-50 icon"><i class="fas fa-cloud-upload-alt"></i></span><span class="text-white text">Upload</span></a></div>
-                <div class="text-primary shadow mb-auto card"><a class="btn btn-link text-left border-info shadow-sm d-inline mb-auto card-header font-weight-bold" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-4" href="#collapse-4" role="button">Instructions</a>
+                   <div class="text-primary shadow mb-auto card"><a class="btn btn-link text-left border-info shadow-sm d-inline mb-auto card-header font-weight-bold" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-4" href="#collapse-4" role="button">Instructions</a>
                     <div class="collapse show"
                         id="collapse-4">
                         <div class="mb-auto card-body">
-                            <p class="m-0">&gt;Use the "Click here to browse" option or Drag and Drop the File to begin the upload process.<br>&gt;Hit the upload button to Upload the document and verify the file</p>
+                            <p class="m-0">&gt;Use the "Click here to browse" option or Drag and Drop the File to begin the upload process.<br>&gt;Enter the password to encrypt the file(Optional)<br>&gt;Hit the upload button to Upload the document and generata a Unique
+                                Certificate!</p>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <form action="/verify" enctype="multipart/form-data" method="post" onsubmit="return submitForm(this);" >
+                <div class="row"> <div class="col-md-4">  <input type="file" class="btn btn-secondary" name="file" multiple>
+              </div>
+              <!-- <div class="col-md-4">
+                <input type="password" class="form-control" id="exampleInputPassword1" name="pass" multiple>
+            </div> -->
+            <div class="col-md-4"> <input type="submit" class="btn btn-primary" value="Upload">
+            </div>
+            </form>
+        </div>
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
                     <div class="text-center my-auto copyright"><span>Copyright © Edusign 2020</span></div>
