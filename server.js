@@ -106,10 +106,21 @@ app.post("/upload", upload.single("file"), function(req, res, next) {
 //End point for fetching the file
 app.post("/fetch", upload.single("file"), function(req, res, next) {
   file = req.file;
-  const obj = JSON.parse(file);
-  new_file = obj.new_name;
+  password = md5(req.param("pass"))
+  console.log(file.filename);
+  let rawdata = fs.readFileSync(__dirname + "/uploads/" + file.filename)
+  let data = JSON.parse(rawdata);
+  console.log(data);
+  new_file = data.new_name;
+  orig_file = data.orig_name;
   new_file = findFile(new_file);
-  res.sendFile(new_file);
+  console.log(new_file)
+  if(password==data.pass){
+      res.download(new_file,orig_file);
+  }
+  else{
+    res.send("Invalid Password, Please try again!")
+  }
 });
 
 //End point for File Verification
