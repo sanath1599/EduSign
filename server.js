@@ -203,6 +203,6 @@ app.listen(PORT, () => {
       "port"
     )} | Environment : ${app.get("env")}`
   );
-  console.log("Returning true");
-  return;
+  
+  return 1;
 });
