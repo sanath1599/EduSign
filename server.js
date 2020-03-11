@@ -92,6 +92,7 @@ app.post("/upload", upload.single("file"), function(req, res, next) {
       jsonDate,
       pass
     );
+    
     file_no = rn(0000, 9999);
     fs.writeFileSync(file_no + ".json", file_success);
     res.sendFile(__dirname + "/" + file_no + ".json");
@@ -214,6 +215,4 @@ app.listen(PORT, () => {
       "port"
     )} | Environment : ${app.get("env")}`
   );
-  
-  return 1;
 });
