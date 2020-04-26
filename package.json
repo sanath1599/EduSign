@@ -1,6 +1,6 @@
 {
   "name": "edusign",
-  "version": "1.5.2",
+  "version": "1.6.4",
   "description": "Create and Verify documents",
   "main": "server.js",
   "scripts": {
