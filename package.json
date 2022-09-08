@@ -17,7 +17,7 @@
     "express-session": "^1.17.0",
     "formidable": "^1.2.1",
     "http-server": "^0.12.1",
-    "jszip": "^3.2.2",
+    "jszip": "^3.7.0",
     "lowdb": "^1.0.0",
     "md5": "^2.2.1",
     "morgan": "^1.9.1",
